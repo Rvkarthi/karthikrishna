@@ -28,11 +28,23 @@
             padding: 0px;
         }
 
-        .card{
-            height: 100%;
+        .card:hover{
+            background-image: linear-gradient(top, black, white);
         }
 
-        .card-text{
+        .card-body {
+            height: 100%;
+            margin: 10px;
+            background-image: linear-gradient(top, black, white);
+        }
+
+        .your-element{
+            transform-style: preserve-3d;
+            transform: translateZ(20px);
+        }
+     
+
+        .card-text {
             flex-grow: 1;
         }
 
@@ -72,27 +84,43 @@
 
         }
 
-    @keyframes appear {
-    from {
-    opacity: 0;
-    scale: 0.5;
-    }
-    to {
-    opacity: 1;
-    scale: 1;
-    }
-}
-    .card, .container, img {
-    animation: appear 5s linear;
-    animation-timeline: view();
-    animation-range: entry 0;
-    }
+        @keyframes appear {
+            from {
+                opacity: 0;
+                scale: 0.5;
+            }
+
+            to {
+                opacity: 1;
+                scale: 1;
+            }
+        }
+
+        .card,
+        .container,
+        img {
+            animation: appear 5s linear;
+            animation-timeline: view();
+            animation-range: entry 0;
+        }
+
+        /* .icons i:hover{
+            color: rgb(255, 0, 208);
+            box-shadow: 0 0 100px rgb(255, 255, 255);
+        } */
+
         .list-group-item {
 
             background-color: rgb(255, 0, 208);
             border: 1px solid rgb(255, 255, 255);
             box-shadow: 0 0 100px rgb(255, 0, 208);
         }
+
+        .fa-brands:hover{
+            filter: drop-shadow(0 10px 30px rgb(255, 0, 208));
+
+        }
+
     </style>
 
 
@@ -137,13 +165,17 @@
     <div class="container">
 
         <div class="row align-items-center row-cols-md-2">
-            <div class="col-md-6 mb-5">
-                <img class="img-fluid" width="500px" src="web.png" alt="">
+            <div class=" col-md-6 mb-5">
+                <img data-tilt data-tilt-glare class="img-fluid" width="500px" src="web.png" alt="">
             </div>
             <div class="col" style="min-height: 100px; color: rgb(255, 0, 208);">
                 <h1 id="typewriter-text"></h1>
+                
             </div>
+            <br>
+            <div class="div-icon" style="display: flex; justify-content: space-around; font-size: 50px; color: white"><i class="your-element fa-brands fa-linkedin"></i><i class="your-element fa-brands fa-github"></i><i class="your-element fa-brands fa-facebook"></i></div>
         </div>
+        
         <!-- cards start -->
         <hr class="my-5">
         <div id="skills" class="container col-12 my-5 align-items-baseline">
@@ -155,7 +187,7 @@
             <div class="row row-cols-1 row-cols-md-4 g-4 ">
 
 
-                <div class="col-6">
+                <div class="your-element col-6">
                     <div style="box-shadow: 0 0 15px rgb(255,255,255)" class="card p-2 mb-5 bg-body-tertiary rounded">
                         <img src="1.gif" class="card-img-top"
                             alt="https://img-c.udemycdn.com/course/750x422/2843938_74c9_2.jpg">
@@ -165,7 +197,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="your-element col-6">
                     <div style="box-shadow: 0 0 15px rgb(255,255,25555)" class="card p-2 mb-5 bg-body-tertiary rounded">
                         <img src="2.gif" class="card-img-top"
                             alt="https://img-c.udemycdn.com/course/750x422/2843938_74c9_2.jpg">
@@ -180,7 +212,7 @@
 
 
 
-                <div class="col-6">
+                <div class="your-element col-6">
                     <div style="box-shadow: 0 0 15px rgb(255,255,255)" class="card p-2 mb-5 bg-body-tertiary rounded">
                         <img src="3.gif" alt="https://img-c.udemycdn.com/course/750x422/2843938_74c9_2.jpg">
                         <div class="card-body">
@@ -189,10 +221,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="your-element col-6">
                     <div style="box-shadow: 0 0 15px rgb(255,255,255)" class="card p-2 mb-5 bg-body-tertiary rounded">
                         <img src="4.gif" alt="https://img-c.udemycdn.com/course/750x422/2843938_74c9_2.jpg">
-                        <div class="card-body">
+                        <div class="card-body" >
                             <h5 class="card-title active">Css</h5>
                             <p class="card-text">Designing the web with CSS: turning pixels into perfection!</p>
                         </div>
@@ -212,9 +244,9 @@
             </div>
         </div>
         <!-- contact-text -->
-        <div class="row justify-content-center ">
+        <div  class="row justify-content-center ">
             <div class="list-group">
-                <a href="https://www.instagram.com/i_karthikrishna/" target="_blank"
+                <a  href="https://www.instagram.com/i_karthikrishna/" target="_blank"
                     class="list-group-item list-group-item-action" aria-current="true">
                     <div class="d-flex w-50 justify-content-between">
                         <h5 class="mb-1"><i class="fa-brands fa-instagram" style="color: #000000;"></i> Instagram</h5>
@@ -311,6 +343,19 @@
     }
 
     type();
+</script>
+
+<script type="text/javascript" src="vanilla-tilt.js"></script>
+<script type="text/javascript">
+	VanillaTilt.init(document.querySelector(".your-element"), {
+		max: 25,
+		speed: 400
+        
+	});
+    
+	
+	//It also supports NodeList
+	VanillaTilt.init(document.querySelectorAll(".your-element"));
 </script>
 <script src="https://kit.fontawesome.com/20e2cdbcc6.js" crossorigin="anonymous"></script>
 
